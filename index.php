@@ -5,48 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"> </script>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-
-    $("#display").click(function(e) {
-      $.ajax({
-        type: "GET",
-        url: "result.php",
-        dataType: "html",
-        success: function(response) {
-          $("#responsecontainer").html(response);
-        }
-      });
-    });
-  });
-</script>
-
-
-
-
-
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
 
 
 
 <body>
 
-  <h3>Manage Student Details</h3>
-  <form action="result.php" method="get">
-    <label>Search<input type="text" name="search"></label>
+  <form action="result.php" method="get" class="searchBox">
+    <label>Search <input type="text" name="search" placeholder="search actor or movie"></label>
     <select name="taskOption">
-      <option disabled selected> Select search option:</option>
-      <option value="actors">Onlu actors </option>
+      <option disabled selected> Search actors and films: </option>
+      <option value="actors">Only actors </option>
       <option value="movie">Only movie </option>
     </select>
     <input type="submit" id="display" value="Search" /> </td>
   </form>
 
-  <div id="container">
-  </div>
+  <?php
+
+  if (!$db_connect = pg_pconnect("host='localhost' port='5432' user='postgres' password='karolek123' dbname='movie_database'")) echo "Connect ERROR";
+  $queryMovie = "select * from movie";
+  if ($result = pg_query($queryMovie)) {
+    echo '<div class="filmsStart" name="filmsStart">
+    <h1>The best movies in the world</h1>
+        <table>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Film genre</th>
+        </tr>
+        ';
+    while ($row = pg_fetch_array($result)) {
+      echo '
+      <tr>
+          <td>' . $row["id"] . '</td>
+          <td>' . $row["title"] . '</td>
+          <td>' . $row["film_genre"] . '</td>
+          </tr>
+          ';
+    }
+    echo
+      '</table></div>';
+  }
+  ?>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"> </script>
+  <script src="index.js"></script>
+
 </body>
 
 </html>
