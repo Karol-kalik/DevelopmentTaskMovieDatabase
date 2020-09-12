@@ -1,0 +1,139 @@
+html {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.searchBox {
+  margin-left: 5vw;
+  width: 90vw;
+  text-align: center;
+  font-size: 30px;
+  padding-top: 5px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.searchBox select {
+  height: 40px;
+  font-size: 30px;
+  border-radius: 10px;
+}
+
+.searchBox select:hover {
+  box-shadow: 0px 0px 8px 0px #B23121;
+}
+
+.searchBox select:focus {
+  color: white;
+  background-color: #B23121;
+}
+
+.searchBox input[type="text"] {
+  height: 40px;
+  font-size: 30px;
+  border-radius: 10px;
+}
+
+.searchBox input[type="text"]:focus {
+  color: white;
+  background-color: #B23121;
+}
+
+.searchBox input[type="text"]:hover {
+  box-shadow: 0px 0px 8px 0px#B23121;
+}
+
+.searchBox input[type="submit"] {
+  height: 40px;
+  font-size: 30px;
+  border-radius: 10px;
+}
+
+.searchBox input[type="submit"]:hover {
+  color: white;
+  box-shadow: 0px 0px 8px 0px#B23121;
+  background-color: #B23121;
+}
+
+.container {
+  display: flex;
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.actorsBox {
+  width: 90%;
+  margin: 5px;
+}
+
+.movieBox {
+  width: 90%;
+  margin: 5px;
+}
+
+.filmsStart {
+  width: 90%;
+  margin: 5px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.searchValue {
+  text-align: left;
+  font-size: 30px;
+}
+
+h1 {
+  text-align: center;
+}
+
+span {
+  font-size: 30px;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+}
+
+th {
+  text-align: left;
+  font-weight: 400;
+  color: #757575;
+  padding: 0 10px 15px 10px;
+}
+
+td {
+  text-align: left;
+  padding: 5px 0;
+  height: 1px;
+
+  padding: 15px 10px;
+  height: 100%;
+  min-height: 50px;
+}
+
+
+tr {
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.15));
+  background-color: #fff;
+}
+
+td:nth-child(1),
+th:nth-child(1) {
+  width: 2vw;
+}
+
+tr:nth-of-type(2n + 0) {
+  background-color: #d4d4d4;
+}
+
+tr:hover {
+  background-color: #949494;
+}
