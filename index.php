@@ -6,88 +6,47 @@
   <title>Document</title>
 </head>
 
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"> </script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $("#display").click(function(e) {
+      $.ajax({
+        type: "GET",
+        url: "result.php",
+        dataType: "html",
+        success: function(response) {
+          $("#responsecontainer").html(response);
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
 <body>
 
-  <form action="index.php" method="get">
+  <h3>Manage Student Details</h3>
+  <form action="result.php" method="get">
     <label>Search<input type="text" name="search"></label>
     <select name="taskOption">
       <option disabled selected> Select search option:</option>
       <option value="actors">Onlu actors </option>
       <option value="movie">Only movie </option>
     </select>
-    <input type="submit" value="search" name="submit">
+    <input type="submit" id="display" value="Search" /> </td>
   </form>
 
-
-
-  <?php
-  if (!$db_connect = pg_pconnect("host='localhost' port='5432' user='postgres' password='karolek123' dbname='movie_database'")) echo "Connect ERROR";
-
-  //search results
-  if (!empty($_REQUEST['search'])) { //if search not empty
-    $search = $_GET["search"];
-    if (!empty($_REQUEST['taskOption'])) {
-      $selectOption = $_GET['taskOption'];
-      if ($selectOption === 'actors') { //if select option is equal actors table
-        $queryActors = "select * from " . $selectOption . " where name like '%" . $search . "%'";
-        if ($result = pg_query($queryActors)) {
-          echo '<div class="actorsBox"> search: ' . $search . ' <br/>';
-          while ($row = pg_fetch_array($result)) {
-            echo '' . $row["id"] . $row["name"] . ' <br/>';
-          }
-          echo '</div>';
-        }
-      } else { //if select option is equal movie table
-        $queryMovie = "select * from " . $selectOption . " where title like '%" . $search . "%'";
-        if ($result = pg_query($queryMovie)) {
-          echo '<div class="movieBox">search: ' . $search . ' <br/>';
-          while ($row = pg_fetch_array($result)) {
-            echo '' . $row["id"] . $row["title"] . ' <br/>';
-          }
-          echo '</div>';
-        }
-      }
-    } else { //if select option was empty but search no
-      $queryActors = "select * from actors where name like '%" . $search . "%'";
-      if ($result = pg_query($queryActors)) {
-        echo '<div class="actorsBox"> search: ' . $search . ' <br/>';
-        while ($row = pg_fetch_array($result)) {
-          echo '' . $row["id"] . $row["name"] . ' <br/>';
-        }
-        echo '</div>';
-      }
-
-      $queryMovie = "select * from movie where title like '%" . $search . "%'";
-      if ($result = pg_query($queryMovie)) {
-        echo '<div class="movieBox">search: ' . $search . ' <br/>';
-        while ($row = pg_fetch_array($result)) {
-          echo '' . $row["id"] . $row["title"] . ' <br/>';
-        }
-        echo '</div>';
-      }
-    }
-  } else { //if search was empty
-    $queryActors = "select * from actors";
-    if ($result = pg_query($queryActors)) {
-      echo '<div class="actorsBox">';
-      while ($row = pg_fetch_array($result)) {
-        echo '' . $row["id"] . $row["name"] . ' <br/>';
-      }
-      echo '</div>';
-    }
-
-    $queryMovie = "select * from movie";
-    if ($result = pg_query($queryMovie)) {
-      echo '<div class="movieBox">';
-      while ($row = pg_fetch_array($result)) {
-        echo '' . $row["id"] . $row["title"] . ' <br/>';
-      }
-      echo '</div>';
-    }
-  };
-
-  pg_close($db_connect)
-  ?>
+  <div id="container">
+  </div>
 </body>
 
 </html>
