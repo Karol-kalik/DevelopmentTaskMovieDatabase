@@ -141,19 +141,41 @@ tr:hover {
 .showElementBox {
   position: absolute;
   width: 80vw;
-  height: 90vh;
+  min-height: 90vh;
   background-color: gray;
   z-index: 5;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 2%;
+  transform: translate(-50%, 0);
   display: none;
   border: 2px solid black;
   border-radius: 20px;
 }
 
 .showElementBox.show {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.showImage {
   display: block;
+  width: 30%;
+  height: 85vh;
+  margin: 10px;
+
+}
+
+.infoContent {
+  width: 60%;
+}
+
+.infoContent h1 {
+  font-size: 40px;
+}
+
+.infoContent p {
+  font-size: 25px;
+  text-align: center;
 }
 
 .closeBtn {
