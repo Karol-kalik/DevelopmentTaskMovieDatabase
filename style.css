@@ -123,6 +123,11 @@ td {
 tr {
   filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.15));
   background-color: #fff;
+  cursor: pointer;
+}
+
+tr:nth-child(1) {
+  cursor: context-menu;
 }
 
 td:nth-child(1),
