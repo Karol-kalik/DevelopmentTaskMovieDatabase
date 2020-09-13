@@ -137,3 +137,31 @@ tr:nth-of-type(2n + 0) {
 tr:hover {
   background-color: #949494;
 }
+
+.showElementBox {
+  position: absolute;
+  width: 80vw;
+  height: 90vh;
+  background-color: gray;
+  z-index: 5;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.showElementBox.show {
+  display: block;
+}
+
+.closeBtn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: none;
+  border: none;
+  font-size: 30px;
+  text-transform: uppercase;
+}
