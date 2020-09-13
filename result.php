@@ -22,7 +22,7 @@ if (!empty($_REQUEST['search'])) { //if search not empty
         </tr>
         ';
         while ($row = pg_fetch_array($result)) {
-          echo '<tr>
+          echo '<tr data-id="' . $row["id"] . '" data-title="' . $row["name"] . '" data-actors="">
           <td>' . $row["id"] . '</td>
           <td>' . $row["name"] . '</td>
           </tr>';
@@ -43,7 +43,7 @@ if (!empty($_REQUEST['search'])) { //if search not empty
         </tr>
         ';
         while ($row = pg_fetch_array($result)) {
-          echo '<tr>
+          echo '<tr data-id="' . $row["id"] . '" data-title="' . $row["title"] . '" data-actors="">
           <td>' . $row["id"] . '</td>
           <td>' . $row["title"] . '</td>
           <td>' . $row["film_genre"] . '</td>
@@ -64,7 +64,7 @@ if (!empty($_REQUEST['search'])) { //if search not empty
         </tr>
         ';
       while ($row = pg_fetch_array($result)) {
-        echo '<tr>
+        echo '<tr data-id="' . $row["id"] . '" data-title="' . $row["name"] . '" data-actors="">
           <td>' . $row["id"] . '</td>
           <td>' . $row["name"] . '</td>
           </tr>';
@@ -84,7 +84,7 @@ if (!empty($_REQUEST['search'])) { //if search not empty
         </tr>
         ';
       while ($row = pg_fetch_array($result)) {
-        echo '<tr>
+        echo '<tr data-id="' . $row["id"] . '" data-title="' . $row["title"] . '" data-actors="">
           <td>' . $row["id"] . '</td>
           <td>' . $row["title"] . '</td>
           <td>' . $row["film_genre"] . '</td>
@@ -108,7 +108,7 @@ if (!empty($_REQUEST['search'])) { //if search not empty
         </tr>
         ';
         while ($row = pg_fetch_array($result)) {
-          echo '<tr>
+          echo '<tr data-id="' . $row["id"] . '" data-title="' . $row["name"] . '" data-actors="">
           <td>' . $row["id"] . '</td>
           <td>' . $row["name"] . '</td>
           </tr>';
@@ -128,7 +128,7 @@ if (!empty($_REQUEST['search'])) { //if search not empty
         </tr>
         ';
         while ($row = pg_fetch_array($result)) {
-          echo '<tr>
+          echo '<tr data-id="' . $row["id"] . '" data-title="' . $row["title"] . '" data-actors="">
           <td>' . $row["id"] . '</td>
           <td>' . $row["title"] . '</td>
           <td>' . $row["film_genre"] . '</td>
@@ -148,7 +148,7 @@ if (!empty($_REQUEST['search'])) { //if search not empty
         </tr>
         ';
       while ($row = pg_fetch_array($result)) {
-        echo '<tr>
+        echo '<tr data-id="' . $row["id"] . '" data-title="' . $row["name"] . '" data-actors="">
           <td>' . $row["id"] . '</td>
           <td>' . $row["name"] . '</td>
           </tr>';
@@ -168,7 +168,7 @@ if (!empty($_REQUEST['search'])) { //if search not empty
         ';
       while ($row = pg_fetch_array($result)) {
         echo '
-      <tr>
+      <tr data-id="' . $row["id"] . '" data-title="' . $row["title"] . '" data-actors="">
           <td>' . $row["id"] . '</td>
           <td>' . $row["title"] . '</td>
           <td>' . $row["film_genre"] . '</td>
