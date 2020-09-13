@@ -22,7 +22,11 @@
     </select>
     <input type="submit" id="display" value="Search" /> </td>
   </form>
-
+  <div class="showElementBox">
+    <input type="button" value="close" class="closeBtn">
+    <img src="" class="showImage">
+    <div class="infoContent"></div>
+  </div>
   <?php
 
   if (!$db_connect = pg_pconnect("host='localhost' port='5432' user='postgres' password='karolek123' dbname='movie_database'")) echo "Connect ERROR";
@@ -39,19 +43,20 @@
         ';
     while ($row = pg_fetch_array($result)) {
       echo '
-      <tr>
-          <td>' . $row["id"] . '</td>
-          <td>' . $row["title"] . '</td>
+      <tr data-id="' . $row["id"] . '" data-title="' . $row["title"] . '" data-img="' . $row["image"] . '" data-type="movies">
+          <td >' . $row["id"] . '</td>
+          <td >' . $row["title"] . '</td>
           <td>' . $row["film_genre"] . '</td>
           </tr>
           ';
     }
+
     echo
       '</table></div>';
   }
   ?>
-
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"> </script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js">
+  </script>
   <script src="index.js"></script>
 
 </body>
